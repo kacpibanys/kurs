@@ -22,5 +22,9 @@ public class Task1 {
 
 //1. nowy branch: TASK-01-ifs
 //2. commit -m "TASK-1 add if tasks" do brancha i push
+//3. wystawienie pr z brancha z zadaniem
 
+//1.5 robie zadania/zadanie
+//2. commit -m "task-1 add nesxt subtastks 2-5"
+//3. wystawienie pr z brancha z zadaniem 1 i wyslanie na chat
 
