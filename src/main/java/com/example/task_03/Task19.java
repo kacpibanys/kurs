@@ -18,7 +18,7 @@ public class Task19 {
             for (int j = 0; j < x; j++) {
                 System.out.println("Enter number: ");
                 matrix[i][j] = sc.nextInt();
-                //System.out.printf("%d\t", matrix[i][j]);
+
                 if (i == j) {
                    elements = elements + matrix[i][j];
                 }
