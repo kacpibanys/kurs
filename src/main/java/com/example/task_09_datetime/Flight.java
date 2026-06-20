@@ -12,8 +12,8 @@ public class Flight {
     ZonedDateTime arrivalTime;
 
     public Flight(String flightNumber, String departureAirport, String arrivalAirport, ZonedDateTime departureTime, ZonedDateTime arrivalTime) {
-        if (departureTime.toInstant().isBefore(arrivalTime.toInstant())) {
-            throw new IllegalArgumentException("Departure time cannot be before arrival time");
+        if (departureTime.toInstant().isAfter(arrivalTime.toInstant())) {
+            throw new IllegalArgumentException("Arrival time cannot be before departure time");
         }
         this.flightNumber = flightNumber;
         this.departureAirport = departureAirport;
@@ -24,8 +24,22 @@ public class Flight {
 
     }
 
-    public Duration calculateFlightDuration(LocalDateTime departureTime, LocalDateTime arrivalTime) {
-        return Duration.between(departureTime, arrivalTime);
+    public Duration calculateFlightDuration() {
+        return Duration.between(this.departureTime.toInstant(), this.arrivalTime.toInstant());
+    }
+
+    public String getFormattedDuration() {
+        Duration duration = calculateFlightDuration();
+        long hours = duration.toHours();
+        int minutes = duration.toMinutesPart();
+
+        if (hours == 0) {
+            return minutes + "m";
+        } else if (minutes == 0) {
+            return hours + "h";
+        } else {
+            return hours + "h " + minutes + "m";
+        }
     }
 
 

@@ -29,6 +29,10 @@ public class FlightFactory {
             case "WAW" -> ZoneId.of("Europe/Warsaw");
             case "JFK" -> ZoneId.of("America/New_York");
             case "LAX" -> ZoneId.of("America/Los_Angeles");
+            case "TYO" -> ZoneId.of("Asia/Tokyo");
+            case "KLK" -> ZoneId.of("Asia/Kolkata");
+            case "SGP" -> ZoneId.of("Asia/Singapore");
+            case "LDN" -> ZoneId.of("Europe/London");
             default -> throw new IllegalArgumentException("Unknown IATA: " + iata);
         };
     }
