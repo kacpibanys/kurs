@@ -12,18 +12,19 @@ public class Flight {
     ZonedDateTime arrivalTime;
 
     public Flight(String flightNumber, String departureAirport, String arrivalAirport, ZonedDateTime departureTime, ZonedDateTime arrivalTime) {
+        if (departureTime.toInstant().isBefore(arrivalTime.toInstant())) {
+            throw new IllegalArgumentException("Departure time cannot be before arrival time");
+        }
         this.flightNumber = flightNumber;
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
 
-        if (departureTime.toInstant().isBefore(arrivalTime.toInstant())) {
-            throw new IllegalArgumentException("Departure time cannot be before arrival time");
-        }
+
     }
 
-    public Duration calculateDuration(LocalDateTime departureTime, LocalDateTime arrivalTime) {
+    public Duration calculateFlightDuration(LocalDateTime departureTime, LocalDateTime arrivalTime) {
         return Duration.between(departureTime, arrivalTime);
     }
 
