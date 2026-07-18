@@ -1,6 +1,4 @@
-package com.example.task10_Generyki;
-
-import java.math.BigDecimal;
+package com.example.task_10_Generyki;
 
 public final class Stats<T extends Number> {
     private final T[] data;

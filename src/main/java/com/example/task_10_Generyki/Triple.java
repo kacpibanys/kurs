@@ -1,4 +1,4 @@
-package com.example.task10_Generyki;
+package com.example.task_10_Generyki;
 
 import java.util.Objects;
 
